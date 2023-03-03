@@ -62,9 +62,9 @@ int main()
 {
 
     // Initialize
-    const int winSIZE = 7;
     const int mainSIZE = 5;
     const int luckySIZE = 2;
+    const int winSIZE = mainSIZE + luckySIZE;
     // unsigned int winNums[winSIZE];
     unsigned int userNums[winSIZE];
     const unsigned int mainBallRange = 50;
