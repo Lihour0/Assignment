@@ -51,6 +51,82 @@ template <class T> void printVec(std::vector<T> vec)
         std::cout << i << " ";
     }
 }
+
+// Prize Checker
+template <class T> void prizeCheck(std::vector<T> mainNum, std::vector<T> luckyNum)
+{
+    const double main2 = 2.10;
+    const double main2luck1 = 4.00;
+    const double main1luck2 = 6.40;
+    const double main3 = 4.10;
+    const double main3luck1 = 7.10;
+    const double main2luck2 = 12.90;
+    const double main4 = 13.20;
+    const double main3luck2 = 48.60;
+    const double main4luck1 = 63.00;
+    const double main4luck2 = 1160.80;
+    const double main5 = 5042.10;
+    const double main5luck1 = 91688.80;
+    const double main5luck2 = 230000000.00;
+    if (mainNum.size() == 2 && luckyNum.size() == 1)
+    {
+        std::cout << "You win \u20AC" << main2luck1;
+    }
+    else if (mainNum.size() == 1 && luckyNum.size() == 2)
+    {
+        std::cout << "You win \u20AC" << main1luck2;
+    }
+    else if (mainNum.size() == 2 && luckyNum.size() == 2)
+    {
+        std::cout << "You win \u20AC" << main2luck2;
+    }
+    else if (mainNum.size() == 3 && luckyNum.size() == 1)
+    {
+        std::cout << "You win \u20AC" << main3luck1;
+    }
+    else if (mainNum.size() == 3 && luckyNum.size() == 2)
+    {
+        std::cout << "You win \u20AC" << main3luck2;
+    }
+    else if (mainNum.size() == 4 && luckyNum.size() == 1)
+    {
+        std::cout << "You win \u20AC" << main4luck1;
+    }
+    else if (mainNum.size() == 4 && luckyNum.size() == 2)
+    {
+        std::cout << "You win \u20AC" << main4luck2;
+    }
+    else if (mainNum.size() == 5 && luckyNum.size() == 1)
+    {
+        std::cout << "You win \u20AC" << main5luck1;
+    }
+    else if (mainNum.size() == 5 && luckyNum.size() == 2)
+    {
+        std::cout << std::fixed << "You hit the Jackpot of \u20AC" << main5luck2;
+    }
+    else if (mainNum.size() == 2)
+    {
+        std::cout << "You win \u20AC" << main2;
+    }
+    else if (mainNum.size() == 3)
+    {
+        std::cout << "You win \u20AC" << main3;
+    }
+    else if (mainNum.size() == 4)
+    {
+        std::cout << "You win \u20AC" << main4;
+    }
+    else if (mainNum.size() == 5)
+    {
+        std::cout << "You win \u20AC" << main5;
+    }
+
+    else
+    {
+        throw std::runtime_error("Undefined Behavior");
+    }
+}
+
 // cin only number if not number clear and ignore
 void inputNumOnly()
 {
@@ -69,19 +145,6 @@ int main()
     unsigned int userNums[winSIZE];
     const unsigned int mainBallRange = 50;
     const unsigned int luckyBallRange = 12;
-    const double main2 = 2.10;
-    const double main2luck1 = 4.00;
-    const double main1luck2 = 6.40;
-    const double main3 = 4.10;
-    const double main3luck1 = 7.10;
-    const double main2luck2 = 12.90;
-    const double main4 = 13.20;
-    const double main3luck2 = 48.60;
-    const double main4luck1 = 63.00;
-    const double main4luck2 = 1160.80;
-    const double main5 = 5042.10;
-    const double main5luck1 = 91688.80;
-    const double main5luck2 = 230000000.00;
 
     // Initialize Vector to store number
     std::vector<unsigned int> temp;
@@ -142,8 +205,6 @@ int main()
     printVec(luckyWinTemp);
     std::cout << "\n";
 
-    // printArrToFile(winNums, winSIZE, outfile);
-
     std::cout << "Please Enter 5 unique numbers ranging from 1-50 and 2 lucky numbers ranging from 1-12"
               << "\n";
 
@@ -199,61 +260,5 @@ int main()
 
     std::cout << std::setprecision(2) << std::fixed;
 
-    if (mainNum.size() == 2 && luckyNum.size() == 1)
-    {
-        std::cout << "You win \u20AC" << main2luck1;
-    }
-    else if (mainNum.size() == 1 && luckyNum.size() == 2)
-    {
-        std::cout << "You win \u20AC" << main1luck2;
-    }
-    else if (mainNum.size() == 2 && luckyNum.size() == 2)
-    {
-        std::cout << "You win \u20AC" << main2luck2;
-    }
-    else if (mainNum.size() == 3 && luckyNum.size() == 1)
-    {
-        std::cout << "You win \u20AC" << main3luck1;
-    }
-    else if (mainNum.size() == 3 && luckyNum.size() == 2)
-    {
-        std::cout << "You win \u20AC" << main3luck2;
-    }
-    else if (mainNum.size() == 4 && luckyNum.size() == 1)
-    {
-        std::cout << "You win \u20AC" << main4luck1;
-    }
-    else if (mainNum.size() == 4 && luckyNum.size() == 2)
-    {
-        std::cout << "You win \u20AC" << main4luck2;
-    }
-    else if (mainNum.size() == 5 && luckyNum.size() == 1)
-    {
-        std::cout << "You win \u20AC" << main5luck1;
-    }
-    else if (mainNum.size() == 5 && luckyNum.size() == 2)
-    {
-        std::cout << std::fixed << "You hit the Jackpot of \u20AC" << main5luck2;
-    }
-    else if (mainNum.size() == 2)
-    {
-        std::cout << "You win \u20AC" << main2;
-    }
-    else if (mainNum.size() == 3)
-    {
-        std::cout << "You win \u20AC" << main3;
-    }
-    else if (mainNum.size() == 4)
-    {
-        std::cout << "You win \u20AC" << main4;
-    }
-    else if (mainNum.size() == 5)
-    {
-        std::cout << "You win \u20AC" << main5;
-    }
-
-    else
-    {
-        throw std::runtime_error("Undefined Behavior");
-    }
+    prizeCheck(mainNum, luckyNum);
 }
